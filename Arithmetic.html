@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Expressions</title>
+    <style>
+        /* Importing a futuristic font */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(circle, rgba(40, 44, 52, 1) 0%, rgba(11, 15, 23, 1) 100%);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: white;
+            transition: background 0.5s ease, transform 0.3s ease;
+        }
+
+        h1 {
+            color: #00d2d2;
+            font-size: 60px;
+            text-shadow: 0 0 15px rgba(0, 210, 210, 0.8), 0 0 25px rgba(0, 255, 255, 0.5);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 0 40px rgba(0, 210, 210, 0.6), 0 0 80px rgba(0, 255, 255, 0.7);
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .counter {
+            font-size: 100px;
+            font-weight: bold;
+            color: #00d2d2;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(0, 210, 210, 0.8), 0 0 30px rgba(0, 255, 255, 0.5);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        a {
+            font-size: 24px;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(135deg, #00d2d2, #00a8a8);
+            padding: 15px 35px;
+            border-radius: 50px;
+            margin: 15px;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 6px 20px rgba(0, 210, 210, 0.3);
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+
+        a:hover {
+            background: linear-gradient(135deg, #00ffcc, #00b8b8);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 255, 255, 0.5);
+        }
+
+        a:active {
+            transform: translateY(2px);
+        }
+
+        .positive {
+            color: #00ff00;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+        }
+
+        .negative {
+            color: #ff0033;
+            text-shadow: 0 0 10px rgba(255, 0, 51, 0.8);
+        }
+
+        .neutral {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+    <script>
+        var counter = 10;
+
+        // Function to update the counter on the page
+        function updateCounterDisplay() {
+            const counterDisplay = document.getElementById("counterDisplay");
+            counterDisplay.innerText = counter;
+
+            // Change the color of the counter based on its value
+            if (counter > 0) {
+                counterDisplay.classList.add('positive');
+                counterDisplay.classList.remove('negative', 'neutral');
+            } else if (counter < 0) {
+                counterDisplay.classList.add('negative');
+                counterDisplay.classList.remove('positive', 'neutral');
+            } else {
+                counterDisplay.classList.add('neutral');
+                counterDisplay.classList.remove('positive', 'negative');
+            }
+
+            // Add some animation to the container when the counter changes
+            document.querySelector('.container').style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                document.querySelector('.container').style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // Call to display the initial counter value
+        window.onload = updateCounterDisplay;
+    </script>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Arithmetic Expressions</h1>    
+    <!-- Display the current counter value -->
+    <div class="counter" id="counterDisplay"></div>
+
+    <!-- Increase Number -->
+    <a href="#" onclick="counter++; updateCounterDisplay()">Increase Number</a><br>
+
+    <!-- Decrease Number -->
+    <a href="#" onclick="counter--; updateCounterDisplay()">Decrease Number</a>
+</div>
+
+</body>
+</html>
